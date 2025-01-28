@@ -12,12 +12,12 @@
 
 # general settings
 NAME="Manuel Wendl, Lukas Koller, Tobias Ladner, Matthias Althoff"
-PAPERABBREV="RobustSetBasedRL"
+PAPERABBREV="robustsetbasedrl"
 
 # setup
 DATE=`date +%y%m%d-%H%M%S`
 EVALNAME="${1:-$DATE}" # defaults to datetime
-DOCKER_NAME=$NAME-$PAPERABBREV-$EVALNAME
+DOCKER_NAME=$PAPERABBREV-$EVALNAME
 SCREEN_NAME=$DOCKER_NAME
 
 # Matlab
