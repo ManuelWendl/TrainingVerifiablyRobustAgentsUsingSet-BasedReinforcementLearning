@@ -1,4 +1,4 @@
-<a href="https://tumcps.github.io/CORA/"><img src="code/cora/app/images/coraLogo_readme.svg" alt="CORA Logo" style="height: 50px;"></a><a href="https://www.ce.cit.tum.de/cps/home/"><img src="code/cora/app/images/TUM_logo.png" alt="TUM Logo" style="height: 50px; margin-right: 10px;"></a>
+<a href="https://tumcps.github.io/CORA/"><img src="code/cora/app/images/coraLogo_readme.svg" alt="CORA Logo" style="height: 50px;"></a>
       
 # Repeatability Package
 
@@ -14,7 +14,7 @@ This folder contains a repeatability package for:
   Thereby, we can control the size of the propagated sets by selecting gradients pointing toward its center, which simplifies the formal verification across different verification methods. 
   Our agents are verifiably more robust than agents obtained by previous approaches, making them more applicable in safety-critical environments.
 
-  <img src="results/NavExampleValidated.png" alt="SetBasedRL" style="height: 50px; margin-right: 10px;">
+  <img src="results/NavExampleValidated.png" alt="SetBasedRL" style="height: 300px; margin-right: 10px;">
 
 ## Folder Structure
 
