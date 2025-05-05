@@ -61,6 +61,29 @@ if ~strcmp(options.rl.actor.nn.train.method,'set')
     actionBatchC = obj.nn.evaluate_(cBatch,options.rl.actor,obj.idxLayer);
     [loss,policyGradient] = critic.getPolicyGradient(batch,actionBatchC,[],options);
     obj.nn.backprop(policyGradient.gradC,options.rl.actor,obj.idxLayer);
+    
+    if strcmp(options.rl.actor.nn.train.method,'MAD')
+    gradsW = cell(length(obj.idxLayer),1);
+    gradsb = cell(length(obj.idxLayer),1);
+    for l = obj.idxLayer
+        if isa(obj.nn.layers{l},"nnLinearLayer")
+            gradsW{l}=obj.nn.layers{l}.backprop.grad.W;
+            gradsb{l}=obj.nn.layers{l}.backprop.grad.b;
+        end
+    end
+    advBatch = aux_computeAdvBatch(obj,cBatch,options);
+    advActionBatchC = obj.nn.evaluate_(advBatch,options.rl.actor,obj.idxLayer);
+    [loss2,madGradient] = aux_computeMADLoss(advActionBatchC,actionBatchC);
+    obj.nn.backprop(madGradient,options.rl.actor,obj.idxLayer);
+    
+    for l = obj.idxLayer
+        if isa(obj.nn.layers{l},"nnLinearLayer")
+            obj.nn.layers{l}.backprop.grad.W = 300*obj.nn.layers{l}.backprop.grad.W + gradsW{l};
+            obj.nn.layers{l}.backprop.grad.b = 300*obj.nn.layers{l}.backprop.grad.b + gradsb{l};
+        end
+    end
+    loss.center = loss.center + 300*loss2;
+    end
     loss.vol = 0;
 else
     % Set based Learinng
@@ -97,6 +120,36 @@ loss = 1/size(yPredG,3)*sum(log(2*sum(abs(yPredG),2)),'all');
 gradOutG = 1/size(yPredG,3)*1/(sum(abs(yPredG),2)).*sign(yPredG);
 nanIdx = isnan(gradOutG)|isinf(gradOutG);
 gradOutG(nanIdx) = 0;
+end
+
+function [loss,grad] = aux_computeMADLoss(aAdv,aTrue)
+loss = 1/size(aAdv,2)*sum((aAdv-aTrue).^2);
+grad = aAdv - aTrue;
+end
+
+function adv_batch = aux_computeAdvBatch(obj,cBatch,options)
+    options.rl.actor.nn.train.updateGrad = false;
+    n = options.rl.actor.nn.train.advOps.numSamples;
+    alpha = options.rl.actor.nn.train.advOps.alpha;
+    
+    epsilon = options.rl.noise;
+    
+    orig_action = obj.nn.evaluate_(cBatch,options.rl.actor,obj.idxLayer);
+
+    adv_state = cBatch + randn(size(cBatch))*1e-5;
+
+    for i = 1:n
+        loss_grad = obj.nn.evaluate_(adv_state,options.rl.actor,obj.idxLayer) - orig_action; 
+        grad = obj.nn.backprop(loss_grad,options.rl.actor,obj.idxLayer);
+        noise_factor = 1e-5/(i+2);
+        update_step = grad + noise_factor.* randn(size(adv_state)) * alpha;
+        adv_state = adv_state + update_step;
+        adv_state = max(min(adv_state,cBatch+epsilon),cBatch-epsilon);
+    end
+    
+    adv_batch = adv_state;
+
+    options.rl.actor.nn.train.updateGrad = true;
 end
 
 % ------------------------------ END OF CODE ------------------------------

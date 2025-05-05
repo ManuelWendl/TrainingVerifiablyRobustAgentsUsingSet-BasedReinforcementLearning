@@ -40,6 +40,7 @@ classdef agentDDPG < agentRL
 %                   'extreme' Adv. samples from edges of perturbation ball
 %                   'naive' Adv. samples from naive algorithm [2]
 %                   'grad' Adv. samples from grad algorthm [2]
+%                   'MAD' Adv. samples from MAD algorithm [3]
 %               .eta: 0.01 (default) Weighting factor for set-based 
 %                   training of the actor.
 %               .advOps - Parameters for adverserial training algs:
@@ -73,6 +74,8 @@ classdef agentDDPG < agentRL
 %   [2] Pattanaik, A. et al. Robust Deep Reinforcement Learning with 
 %       Adversarial Attacks, Int. Conf. on Autonomous Agents and Multiagent 
 %       Systems (AAMAS) 2018
+%   [3] Zhang, H. et al. Robust Deep Reinforcement Learning against
+%       Adversarial Perturbations on State Observations, 2020
 %
 % Other m-files required: none
 % Subfunctions: none

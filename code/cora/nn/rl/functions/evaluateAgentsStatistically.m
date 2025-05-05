@@ -90,6 +90,9 @@ for j = 1:numberofAgents
     elseif strcmp(agents{1,j}.options.rl.actor.nn.train.method,'grad') && strcmp(agents{1,j}.options.rl.critic.nn.train.method,'point')
         cmap(j,:) = [10,93,0]./255;
         labels{j} = 'Grad';
+    elseif strcmp(agents{1,j}.options.rl.actor.nn.train.method,'MAD') && strcmp(agents{1,j}.options.rl.critic.nn.train.method,'point')
+        cmap(j,:) = [20,230,0]./255;
+        labels{j} = 'MAD';
     elseif strcmp(agents{1,j}.options.rl.actor.nn.train.method,'set') && strcmp(agents{1,j}.options.rl.critic.nn.train.method,'point')
         cmap(j,:) = [0.69020,0.82350,1.00000];
         labels{j} = 'SA-PC';
@@ -104,19 +107,23 @@ for j = 1:numberofAgents
     end
 end
 
-meanLHReward = squeeze(mean(LHReward,1));
-confLHReward = tinv(.95,numberOfSeeds-1)*squeeze(std(LHReward,0,1))/sqrt(numberOfSeeds);
+target_size = size(LHReward,[2,3]);
 
-meanLHQ0 = squeeze(mean(LHQ0,1));
+meanLHReward = reshape(mean(LHReward,1),target_size);
+confLHReward = tinv(.95,numberOfSeeds-1)*reshape(std(LHReward,0,1),target_size)/sqrt(numberOfSeeds);
 
-meanReward = squeeze(mean(Reward,1));
-confReward = tinv(.95,numberOfSeeds-1)*squeeze(std(Reward,0,1))/sqrt(numberOfSeeds);
+meanLHQ0 = reshape(mean(LHQ0,1),target_size);
 
-meanRewardAdvNaive = squeeze(mean(RewardAdvNaive,1));
-confRewardAdvNaive = tinv(.95,numberOfSeeds-1)*squeeze(std(RewardAdvNaive,0,1))/sqrt(numberOfSeeds);
+target_size = size(Reward,[2,3]);
 
-meanRewardAdvGrad = squeeze(mean(RewardAdvGrad,1));
-confRewardAdvGrad = tinv(.95,numberOfSeeds-1)*squeeze(std(RewardAdvGrad,0,1))/sqrt(numberOfSeeds);
+meanReward = reshape(mean(Reward,1),target_size);
+confReward = tinv(.95,numberOfSeeds-1)*reshape(std(Reward,0,1),target_size)/sqrt(numberOfSeeds);
+
+meanRewardAdvNaive = reshape(mean(RewardAdvNaive,1),target_size);
+confRewardAdvNaive = tinv(.95,numberOfSeeds-1)*reshape(std(RewardAdvNaive,0,1),target_size)/sqrt(numberOfSeeds);
+
+meanRewardAdvGrad = reshape(mean(RewardAdvGrad,1), target_size);
+confRewardAdvGrad = tinv(.95,numberOfSeeds-1)*reshape(std(RewardAdvGrad,0,1),target_size)/sqrt(numberOfSeeds);
 
 fig1 = figure();
 hold on

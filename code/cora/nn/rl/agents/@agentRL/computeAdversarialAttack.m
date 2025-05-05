@@ -100,9 +100,7 @@ if strcmp(obj.options.rl.actor.nn.train.method,'grad')
         x_adv = x;
     end
 
-    obj.options.rl.critic.nn.train.updateGrad = false;
-end
-
+    obj.options.rl.critic.nn.train.updateGrad = true;
 end
 
 % ------------------------------ END OF CODE ------------------------------
