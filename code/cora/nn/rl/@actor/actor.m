@@ -25,6 +25,7 @@ classdef actor
 %                   'extreme' Adv. samples from edges of perturbation ball
 %                   'naive' Adv. samples from naive algorithm [2]
 %                   'grad' Adv. samples from grad algorthm [2]
+%		    'MAD' Adv. training with maximum-action-differnce loss [3]
 %
 % Outputs:
 %   obj - generated actor
@@ -35,6 +36,9 @@ classdef actor
 %   [2] Pattanaik, A. et al. Robust Deep Reinforcement Learning with 
 %       Adversarial Attacks, Int. Conf. on Autonomous Agents and Multiagent 
 %       Systems (AAMAS) 2018
+%   [3] H. Zhang et.al. Robust Deep Reinforcement Learning against Adversarial 
+%	Perturbations on State Observations, Int. Conf. on Neural Information 
+%	Processing Systems (NeurIPS) 2020 
 %
 % Other m-files required: none
 % Subfunctions: none

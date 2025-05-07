@@ -23,6 +23,7 @@ function [obj, loss] = train(obj,critic,batch,options,noiseBatchG)
 %                   'extreme' Adv. samples from edges of perturbation ball
 %                   'naive' Adv. samples from naive algorithm [2]
 %                   'grad' Adv. samples from grad algorthm [2]
+%		    'MAD' Adv. training with maximum-action-difference loss [3]
 %               .eta: 0.01 (default) Weighting factor for set-based 
 %                   training of the actor.
 %               .zonotope_weight_update: 'outer_product' (default)
@@ -39,6 +40,9 @@ function [obj, loss] = train(obj,critic,batch,options,noiseBatchG)
 %   [2] Pattanaik, A. et al. Robust Deep Reinforcement Learning with 
 %       Adversarial Attacks, Int. Conf. on Autonomous Agents and Multiagent 
 %       Systems (AAMAS) 2018
+%   [3] H. Zhang et.al. Robust Deep Reinforcement Learning against Adversarial 
+%	Perturbations on State Observations, Int. Conf. on Neural Information 
+%	Processing Systems (NeurIPS) 2020 
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -78,11 +82,11 @@ if ~strcmp(options.rl.actor.nn.train.method,'set')
     
     for l = obj.idxLayer
         if isa(obj.nn.layers{l},"nnLinearLayer")
-            obj.nn.layers{l}.backprop.grad.W = 300*obj.nn.layers{l}.backprop.grad.W + gradsW{l};
-            obj.nn.layers{l}.backprop.grad.b = 300*obj.nn.layers{l}.backprop.grad.b + gradsb{l};
+            obj.nn.layers{l}.backprop.grad.W = obj.nn.layers{l}.backprop.grad.W + gradsW{l};
+            obj.nn.layers{l}.backprop.grad.b = obj.nn.layers{l}.backprop.grad.b + gradsb{l};
         end
     end
-    loss.center = loss.center + 300*loss2;
+    loss.center = loss.center + loss2;
     end
     loss.vol = 0;
 else
@@ -123,7 +127,7 @@ gradOutG(nanIdx) = 0;
 end
 
 function [loss,grad] = aux_computeMADLoss(aAdv,aTrue)
-loss = 1/size(aAdv,2)*sum((aAdv-aTrue).^2);
+loss = 1/size(aAdv,2)*sum((aAdv-aTrue).^2,'all');
 grad = aAdv - aTrue;
 end
 

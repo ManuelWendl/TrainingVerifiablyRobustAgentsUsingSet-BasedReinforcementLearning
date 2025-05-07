@@ -42,6 +42,7 @@ classdef agentTD3 < agentRL
 %                   'extreme' Adv. samples from edges of perturbation ball
 %                   'naive' Adv. samples from naive algorithm [2]
 %                   'grad' Adv. samples from grad algorthm [2]
+%		    'MAD' Adv. training with maximum-action-difference loss [3]
 %               .eta: 0.01 (default) Weighting factor for set-based 
 %                   training of the actor.
 %               .advOps - Parameters for adverserial training algs:

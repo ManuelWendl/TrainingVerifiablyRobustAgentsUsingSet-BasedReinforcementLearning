@@ -1,7 +1,7 @@
 function completed = benchmark_rl_agentDDPG_NavTask()
 % benchmark_neuralNetwork_rl_agentDDPG_NavTask - Example for set-based
 %   reinforcement learning. This example script trains a point-based,
-%   naive-adversarial, grad-adversarial, SA-PC and SA-SC agents with
+%   naive-adversarial, grad-adversarial, MAD-adversarial, SA-PC and SA-SC agents with
 %   omega = 0 and omega = 0.5 [1]. The results are only evaluated for one
 %   random seed. In the example we use a shortened evaluation. To fully
 %   train the agents set 'totalEpisodes' to 2000 and initialOps to 'uniform'.
@@ -89,7 +89,7 @@ options.rl.env.reach.zonotopeOrder = 200;
 
 % Allocate Agent Array ----------------------------------------------------
 seed = 5;
-numAgents = 6;
+numAgents = 7;
 agents = cell(seed,numAgents);
 
 % Build Environment -------------------------------------------------------
@@ -156,19 +156,19 @@ for i = 1:seed
     DDPG3 = DDPG3.train(env,totalEpisodes);
     agents{i,3} = DDPG3;
 
-    % Set-Based Actor and Point-Based Critic --------------------------------
-    options.rl.actor.nn.train.method = 'set';
+    % Point-Based Actor MAD advers attack -----------------------------------
+    options.rl.actor.nn.train.method = 'MAD';
     options.rl.critic.nn.train.method = 'point';
+    options.rl.actor.nn.train.advOps.numSamples = 10;
 
     rng(seed,"twister"); % Set rng
     DDPG4 = agentDDPG(nnActor,nnCritic,options);
     DDPG4 = DDPG4.train(env,totalEpisodes);
     agents{i,4} = DDPG4;
 
-    % Set-Based Actor and Set-Based Critic --------------------------------
+    % Set-Based Actor and Point-Based Critic --------------------------------
     options.rl.actor.nn.train.method = 'set';
-    options.rl.actor.nn.train.omega = 0;
-    options.rl.critic.nn.train.method = 'set';
+    options.rl.critic.nn.train.method = 'point';
 
     rng(seed,"twister"); % Set rng
     DDPG5 = agentDDPG(nnActor,nnCritic,options);
@@ -177,13 +177,23 @@ for i = 1:seed
 
     % Set-Based Actor and Set-Based Critic --------------------------------
     options.rl.actor.nn.train.method = 'set';
-    options.rl.actor.nn.train.omega = .5;
+    options.rl.actor.nn.train.omega = 0;
     options.rl.critic.nn.train.method = 'set';
 
     rng(seed,"twister"); % Set rng
     DDPG6 = agentDDPG(nnActor,nnCritic,options);
     DDPG6 = DDPG6.train(env,totalEpisodes);
     agents{i,6} = DDPG6;
+
+    % Set-Based Actor and Set-Based Critic --------------------------------
+    options.rl.actor.nn.train.method = 'set';
+    options.rl.actor.nn.train.omega = .5;
+    options.rl.critic.nn.train.method = 'set';
+
+    rng(seed,"twister"); % Set rng
+    DDPG7 = agentDDPG(nnActor,nnCritic,options);
+    DDPG7 = DDPG7.train(env,totalEpisodes);
+    agents{i,7} = DDPG7;
 
 end
 

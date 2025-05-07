@@ -91,7 +91,7 @@ options.rl.env.reach.alg = 'lin';
 options.rl.env.reach.zonotopeOrder = 200;
 
 % Allocate Agent Array ----------------------------------------------------
-numAgents = 6;
+numAgents = 7;
 agents = cell(1,numAgents);
 
 % Build Environment -------------------------------------------------------
@@ -157,34 +157,44 @@ DDPG3 = agentDDPG(nnActor,nnCritic,options);
 DDPG3 = DDPG3.train(env,totalEpisodes);
 agents{3} = DDPG3;
 
+% Point-Based Actor MAD advers attack -----------------------------------
+options.rl.actor.nn.train.method = 'MAD';
+options.rl.critic.nn.train.method = 'point';
+options.rl.actor.nn.train.advOps.numSamples = 10;
+
+rng(seed,"twister"); % Set rng
+DDPG4 = agentDDPG(nnActor,nnCritic,options);
+DDPG4 = DDPG4.train(env,totalEpisodes);
+agents{i,4} = DDPG4;
+
 % Set-Based Actor and Point-Based Critic --------------------------------
 options.rl.actor.nn.train.method = 'set';
 options.rl.critic.nn.train.method = 'point';
 
-rng(1,"twister"); % Set rng
-DDPG4 = agentDDPG(nnActor,nnCritic,options);
-DDPG4 = DDPG4.train(env,totalEpisodes);
-agents{4} = DDPG4;
+rng(seed,"twister"); % Set rng
+DDPG5 = agentDDPG(nnActor,nnCritic,options);
+DDPG5 = DDPG5.train(env,totalEpisodes);
+agents{i,5} = DDPG5;
 
 % Set-Based Actor and Set-Based Critic --------------------------------
 options.rl.actor.nn.train.method = 'set';
 options.rl.actor.nn.train.omega = 0;
 options.rl.critic.nn.train.method = 'set';
 
-rng(1,"twister"); % Set rng
-DDPG5 = agentDDPG(nnActor,nnCritic,options);
-DDPG5 = DDPG5.train(env,totalEpisodes);
-agents{5} = DDPG5;
+rng(seed,"twister"); % Set rng
+DDPG6 = agentDDPG(nnActor,nnCritic,options);
+DDPG6 = DDPG6.train(env,totalEpisodes);
+agents{i,6} = DDPG6;
 
 % Set-Based Actor and Set-Based Critic --------------------------------
 options.rl.actor.nn.train.method = 'set';
 options.rl.actor.nn.train.omega = .5;
 options.rl.critic.nn.train.method = 'set';
 
-rng(1,"twister"); % Set rng
-DDPG6 = agentDDPG(nnActor,nnCritic,options);
-DDPG6 = DDPG6.train(env,totalEpisodes);
-agents{6} = DDPG6;
+rng(seed,"twister"); % Set rng
+DDPG7 = agentDDPG(nnActor,nnCritic,options);
+DDPG7 = DDPG7.train(env,totalEpisodes);
+agents{i,7} = DDPG7;
 
 cpath = fileparts(mfilename("fullpath"));
 scriptName = mfilename;

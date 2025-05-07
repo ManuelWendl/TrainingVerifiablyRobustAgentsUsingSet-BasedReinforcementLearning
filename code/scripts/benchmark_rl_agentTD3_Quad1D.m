@@ -92,7 +92,7 @@ options.rl.env.reach.zonotopeOrder = 200;
 
 % Allocate Agent Array ----------------------------------------------------
 seed = 5;
-numAgents = 6;
+numAgents = 7;
 agents = cell(seed,numAgents);
 
 % Build Environment -------------------------------------------------------
@@ -162,34 +162,44 @@ for i = 1:seed
     TD3_3 = TD3_3.train(env,totalEpisodes);
     agents{i,3} = TD3_3;
 
-    % Set-Based Actor and Point-Based Critic ----------------------------------
+    % Point-Based Actor MAD advers attack -----------------------------------
+    options.rl.actor.nn.train.method = 'MAD';
+    options.rl.critic.nn.train.method = 'point';
+    options.rl.actor.nn.train.advOps.numSamples = 10;
+
+    rng(seed,"twister"); % Set rng
+    DDPG4 = agentDDPG(nnActor,nnCritic,options);
+    DDPG4 = DDPG4.train(env,totalEpisodes);
+    agents{i,4} = DDPG4;
+
+    % Set-Based Actor and Point-Based Critic --------------------------------
     options.rl.actor.nn.train.method = 'set';
     options.rl.critic.nn.train.method = 'point';
 
     rng(seed,"twister"); % Set rng
-    TD3_4 = agentTD3(nnActor,nnCritic1,nnCritic2,options);
-    TD3_4 = TD3_4.train(env,totalEpisodes);
-    agents{i,4} = TD3_4;
+    DDPG5 = agentDDPG(nnActor,nnCritic,options);
+    DDPG5 = DDPG5.train(env,totalEpisodes);
+    agents{i,5} = DDPG5;
 
-    % Set-Based Actor and Set-Based Critic ------------------------------------
+    % Set-Based Actor and Set-Based Critic --------------------------------
     options.rl.actor.nn.train.method = 'set';
     options.rl.actor.nn.train.omega = 0;
     options.rl.critic.nn.train.method = 'set';
 
     rng(seed,"twister"); % Set rng
-    TD3_5 = agentTD3(nnActor,nnCritic1,nnCritic2,options);
-    TD3_5 = TD3_5.train(env,totalEpisodes);
-    agents{i,5} = TD3_5;
+    DDPG6 = agentDDPG(nnActor,nnCritic,options);
+    DDPG6 = DDPG6.train(env,totalEpisodes);
+    agents{i,6} = DDPG6;
 
-    % Set-Based Actor and Set-Based Critic ------------------------------------
+    % Set-Based Actor and Set-Based Critic --------------------------------
     options.rl.actor.nn.train.method = 'set';
     options.rl.actor.nn.train.omega = .5;
     options.rl.critic.nn.train.method = 'set';
 
     rng(seed,"twister"); % Set rng
-    TD3_6 = agentTD3(nnActor,nnCritic1,nnCritic2,options);
-    TD3_6 = TD3_6.train(env,totalEpisodes);
-    agents{i,6} = TD3_6;
+    DDPG7 = agentDDPG(nnActor,nnCritic,options);
+    DDPG7 = DDPG7.train(env,totalEpisodes);
+    agents{i,7} = DDPG7;
 
 end
 
