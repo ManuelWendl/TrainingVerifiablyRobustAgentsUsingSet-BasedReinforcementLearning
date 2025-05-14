@@ -72,6 +72,9 @@ for i = 1:numAgents
     elseif strcmp(agents{i}.options.rl.actor.nn.train.method,'grad') && strcmp(agents{i}.options.rl.critic.nn.train.method,'point')
         cmap(i,:) = [10,93,0]./255;
         labels{i} = 'Grad';
+    elseif strcmp(agents{i}.options.rl.actor.nn.train.method,'MAD') && strcmp(agents{i}.options.rl.critic.nn.train.method,'point')
+        cmap(i,:) = [20,230,0]./255;
+        labels{i} = 'MAD';
     elseif strcmp(agents{i}.options.rl.actor.nn.train.method,'set') && strcmp(agents{i}.options.rl.critic.nn.train.method,'point')
         cmap(i,:) = [0.69020,0.82350,1.00000];
         labels{i} = 'SA-PC';

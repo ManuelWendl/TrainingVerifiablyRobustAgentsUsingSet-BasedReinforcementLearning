@@ -162,39 +162,39 @@ options.rl.actor.nn.train.method = 'MAD';
 options.rl.critic.nn.train.method = 'point';
 options.rl.actor.nn.train.advOps.numSamples = 10;
 
-rng(seed,"twister"); % Set rng
+rng(1,"twister"); % Set rng
 DDPG4 = agentDDPG(nnActor,nnCritic,options);
 DDPG4 = DDPG4.train(env,totalEpisodes);
-agents{i,4} = DDPG4;
+agents{4} = DDPG4;
 
 % Set-Based Actor and Point-Based Critic --------------------------------
 options.rl.actor.nn.train.method = 'set';
 options.rl.critic.nn.train.method = 'point';
 
-rng(seed,"twister"); % Set rng
+rng(1,"twister"); % Set rng
 DDPG5 = agentDDPG(nnActor,nnCritic,options);
 DDPG5 = DDPG5.train(env,totalEpisodes);
-agents{i,5} = DDPG5;
+agents{5} = DDPG5;
 
 % Set-Based Actor and Set-Based Critic --------------------------------
 options.rl.actor.nn.train.method = 'set';
 options.rl.actor.nn.train.omega = 0;
 options.rl.critic.nn.train.method = 'set';
 
-rng(seed,"twister"); % Set rng
+rng(1,"twister"); % Set rng
 DDPG6 = agentDDPG(nnActor,nnCritic,options);
 DDPG6 = DDPG6.train(env,totalEpisodes);
-agents{i,6} = DDPG6;
+agents{6} = DDPG6;
 
 % Set-Based Actor and Set-Based Critic --------------------------------
 options.rl.actor.nn.train.method = 'set';
 options.rl.actor.nn.train.omega = .5;
 options.rl.critic.nn.train.method = 'set';
 
-rng(seed,"twister"); % Set rng
+rng(1,"twister"); % Set rng
 DDPG7 = agentDDPG(nnActor,nnCritic,options);
 DDPG7 = DDPG7.train(env,totalEpisodes);
-agents{i,7} = DDPG7;
+agents{7} = DDPG7;
 
 cpath = fileparts(mfilename("fullpath"));
 scriptName = mfilename;
