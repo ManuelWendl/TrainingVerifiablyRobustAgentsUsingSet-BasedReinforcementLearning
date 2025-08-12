@@ -4,7 +4,7 @@
 
 This folder contains a repeatability package for:
 
-- Paper:  <a href="https://arxiv.org/abs/2408.09112"> `Training Verifiably Robust Agents Using Set-Based Reinforcement Learning` </a>
+- Paper: `Training Verifiably Robust Agents Using Set-Based Reinforcement Learning`
 - Venue: `under review`
 
   Reinforcement learning uses neural networks as agents to solve complex control tasks.
@@ -21,7 +21,7 @@ This folder contains a repeatability package for:
 
 - `./`                       : base path                             
   - `./code`                : path to code                          
-    - `./cora`              : path to [CORA](https://cora.in.tum.de/)
+    - `./cora`              : path to toolbox
     - `./scripts`           : path to auxiliary scripts                 
     - `./main.m`            : **main Matlab script**                  
   - `./results`             : path to results (created after execution)
