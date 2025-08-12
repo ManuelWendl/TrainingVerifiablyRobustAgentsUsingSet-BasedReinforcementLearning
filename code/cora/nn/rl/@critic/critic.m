@@ -27,8 +27,8 @@ classdef critic
 %   obj - generated critic
 %
 % Refernces:
-%   [1] Wendl, M. et al. Training Verifiably Robust Agents Using Set-Based 
-%       Reinforcement Learning, 2024
+%   [1] XXX XXX et al. Training Verifiably Robust Agents Using Set-Based 
+%       Reinforcement Learning
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -36,9 +36,9 @@ classdef critic
 %
 % See also: DDPGagent
 
-% Authors:       Manuel Wendl
-% Written:       23-October-2023
-% Last update:   18-August-2024 (new allocation method)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

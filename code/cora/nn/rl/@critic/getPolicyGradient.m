@@ -29,8 +29,8 @@ function [loss,grad_in] = getPolicyGradient(obj,batch,actionBatchC,actionBatchG,
 %   grad_in - policy gradient and volume loss gradient of actor
 % 
 % Refernces:
-%   [1] Wendl, M. et al. Training Verifiably Robust Agents Using Set-Based 
-%       Reinforcement Learning, 2024
+%   [1] XXX XXX et al. Training Verifiably Robust Agents Using Set-Based 
+%       Reinforcement Learning
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -38,8 +38,8 @@ function [loss,grad_in] = getPolicyGradient(obj,batch,actionBatchC,actionBatchG,
 %
 % See also: critic
 
-% Authors:       Manuel Wendl
-% Written:       03-November-2023
+% Authors:       XXX XXX
+% Written:       
 % Last update:   ---
 % Last revision: ---
 

@@ -15,8 +15,8 @@ function completed = benchmark_rl_agentDDPG_Pendulum()
 %    res - true/false
 %
 % References:
-%   [1] Wendl, M. et al. Training Verifiably Robust Agents Using Set-Based
-%       Reinforcement Learning, 2024.
+%   [1] XXX XXX et al. Training Verifiably Robust Agents Using Set-Based
+%       Reinforcement Learning.
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -24,7 +24,7 @@ function completed = benchmark_rl_agentDDPG_Pendulum()
 %
 % See also:
 
-% Authors:       Manuel Wendl
+% Authors:       XXX XXX
 % Written:       27-August-2024
 % Last update:   ---
 % Last revision: ---

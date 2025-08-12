@@ -71,8 +71,8 @@ classdef agentTD3 < agentRL
 %   obj - generated TD3Agent
 %
 % Refernces:
-%   [1] Wendl, M. et al. Training Verifiably Robust Agents Using Set-Based 
-%       Reinforcement Learning, 2024
+%   [1] XXX XXX et al. Training Verifiably Robust Agents Using Set-Based 
+%       Reinforcement Learning
 %   [2] Pattanaik, A. et al. Robust Deep Reinforcement Learning with 
 %       Adversarial Attacks, Int. Conf. on Autonomous Agents and Multiagent 
 %       Systems (AAMAS) 2018
@@ -83,9 +83,9 @@ classdef agentTD3 < agentRL
 %
 % See also: actor
 
-% Authors:       Manuel Wendl
-% Written:       10-January-2023
-% Last update:   18-August-2024 (abstract class agentRL)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

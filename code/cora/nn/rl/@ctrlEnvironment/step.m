@@ -20,10 +20,9 @@ function [obj, observation, reward, isDone, visual] = step(obj,action)
 %
 % See also: ctrlEnvironment
 
-% Authors:       Manuel Wendl
-% Written:       03-November-2023
-% Last update:   18-August-2024 (simplify step functionality by extracting from RLagent)
-%                19-September-2024 (TL, rewrote reach call w/ params & options)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

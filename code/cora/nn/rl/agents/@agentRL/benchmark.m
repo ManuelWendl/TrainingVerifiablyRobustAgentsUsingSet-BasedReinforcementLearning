@@ -21,9 +21,9 @@ function [reachSet,reward,rewardAdvNaive,rewardAdvGrad] = benchmark(obj,env,pert
 %
 % See also: critic
 
-% Authors:       Manuel Wendl
-% Written:       04-November-2023
-% Last update:   18-August-2024 (new options structure)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

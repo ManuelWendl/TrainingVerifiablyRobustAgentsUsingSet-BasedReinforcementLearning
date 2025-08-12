@@ -19,8 +19,8 @@ classdef buffer
 %
 % See also: DDPGagent
 
-% Authors:       Manuel Wendl
-% Written:       24-October-2023
+% Authors:       XXX XXX
+% Written:       
 % Last update:   ---
 % Last revision: ---
 

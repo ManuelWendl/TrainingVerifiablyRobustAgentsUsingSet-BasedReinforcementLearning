@@ -35,10 +35,9 @@ classdef ctrlEnvironment
 %
 % See also: ctrlEnvironment
 
-% Authors:       Manuel Wendl
-% Written:       22-October-2023
-% Last update:   18-August-2024 (parse settings in constructor not in reset)
-%                18-September-2024 (TL, updated validateOptions call)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

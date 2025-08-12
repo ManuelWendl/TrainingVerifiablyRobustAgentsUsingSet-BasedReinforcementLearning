@@ -17,8 +17,8 @@ function res = test_nn_rl_agentRL_validateOptions()
 %
 % See also:
 
-% Authors:       Manuel Wendl
-% Written:       27-August-2024
+% Authors:       XXX XXX
+% Written:       
 % Last update:   ---
 % Last revision: ---
 

@@ -11,7 +11,7 @@
 # Note: Variables should be all-lowercase and words can be seperated by '-'
 
 # general settings
-NAME="Manuel Wendl, Lukas Koller, Tobias Ladner, Matthias Althoff"
+NAME="XXX XXX"
 PAPERABBREV="robustsetbasedrl"
 
 # setup

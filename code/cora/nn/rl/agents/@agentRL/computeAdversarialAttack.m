@@ -16,8 +16,8 @@ function x_adv = computeAdversarialAttack(obj,x)
 %
 % See also: actor
 
-% Authors:       Manuel Wendl
-% Written:       05-December-2023
+% Authors:       XXX XXX
+% Written:       
 % Last update:   ---
 % Last revision: ---
 

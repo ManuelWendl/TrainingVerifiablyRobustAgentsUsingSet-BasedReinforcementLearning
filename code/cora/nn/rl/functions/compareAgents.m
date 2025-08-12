@@ -21,9 +21,9 @@ function [reachSets,Reward,RewardAdvNaive,RewardAdvGrad] = compareAgents(agents,
 %
 % See also: ctrlEnvironment
 
-% Authors:       Manuel Wendl
-% Written:       15-November-2023
-% Last update:   18-August-2024 (extract environment from RLagent)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

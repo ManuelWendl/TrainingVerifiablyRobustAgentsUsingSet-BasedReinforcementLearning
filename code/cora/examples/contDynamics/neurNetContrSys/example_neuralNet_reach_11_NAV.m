@@ -15,8 +15,8 @@ function [completed,res,tTotal] = example_neuralNet_reach_11_NAV(type)
 %    tTotal - total time
 %
 
-% Authors:       Manuel Wendl, Tobias Ladner
-% Written:       30-April-2024
+% Authors:       XXX XXX, XXX XXX
+% Written:       
 % Last update:   ---
 % Last revision: ---
 

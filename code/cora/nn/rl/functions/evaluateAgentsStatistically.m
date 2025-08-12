@@ -21,9 +21,9 @@ function evaluateAgentsStatistically(agents,env,perturbation,initialOps)
 %
 % See also: RLagent, ctrlEnvironment
 
-% Authors:       Manuel Wendl
-% Written:       26-November-2023
-% Last update:   18-August-2024 (extract environment from RLagent, new options structure)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

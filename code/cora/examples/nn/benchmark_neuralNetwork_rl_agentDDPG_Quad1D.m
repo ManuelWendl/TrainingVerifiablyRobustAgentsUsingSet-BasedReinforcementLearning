@@ -16,8 +16,8 @@ function completed = benchmark_neuralNetwork_rl_agentDDPG_Quad1D()
 %    res - boolean
 %
 % References:
-%   [1] Wendl, M. et al. Training Verifiably Robust Agents Using Set-Based
-%       Reinforcement Learning, 2024.
+%   [1] XXX XXX et al. Training Verifiably Robust Agents Using Set-Based
+%       Reinforcement Learning.
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -25,8 +25,8 @@ function completed = benchmark_neuralNetwork_rl_agentDDPG_Quad1D()
 %
 % See also:
 
-% Authors:       Manuel Wendl
-% Written:       27-August-2024
+% Authors:       XXX XXX
+% Written:       
 % Last update:   ---
 % Last revision: ---
 

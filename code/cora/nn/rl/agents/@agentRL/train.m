@@ -20,11 +20,9 @@ function obj = train(obj,env,varargin)
 %
 % See also: DDPGagent, actor, critic
 
-% Authors:       Manuel Wendl
-% Written:       24-October-2023
-% Last update:   18-August-2024 (extract environment from RlAgent, new options structure)
-%                19-September-2024 (TL, renamed to train)
-%                12-October-2024 (TL, speed up set-based exp. gathering)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

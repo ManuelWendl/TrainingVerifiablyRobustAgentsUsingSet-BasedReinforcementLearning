@@ -35,14 +35,14 @@ function [obj, loss] = train(obj,critic,batch,options,noiseBatchG)
 %   loss - actor loss 
 % 
 % Refernces:
-%   [1] Wendl, M. et al. Training Verifiably Robust Agents Using Set-Based 
-%       Reinforcement Learning, 2024
+%   [1] XXX XXX et al. Training Verifiably Robust Agents Using Set-Based 
+%       Reinforcement Learning
 %   [2] Pattanaik, A. et al. Robust Deep Reinforcement Learning with 
 %       Adversarial Attacks, Int. Conf. on Autonomous Agents and Multiagent 
 %       Systems (AAMAS) 2018
 %   [3] H. Zhang et.al. Robust Deep Reinforcement Learning against Adversarial 
-%	Perturbations on State Observations, Int. Conf. on Neural Information 
-%	Processing Systems (NeurIPS) 2020 
+%	    Perturbations on State Observations, Int. Conf. on Neural Information 
+%	    Processing Systems (NeurIPS) 2020 
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -50,9 +50,9 @@ function [obj, loss] = train(obj,critic,batch,options,noiseBatchG)
 %
 % See also: actor
 
-% Authors:       Manuel Wendl
-% Written:       03-November-2023
-% Last update:   19-September-2024 (TL, renamed to train)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

@@ -17,9 +17,9 @@ function [obj, initialObservation] = reset(obj)
 %
 % See also: ctrlEnvironment
 
-% Authors:       Manuel Wendl
-% Written:       03-November-2023
-% Last update:   18-August-2024 (MW, new options structure)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

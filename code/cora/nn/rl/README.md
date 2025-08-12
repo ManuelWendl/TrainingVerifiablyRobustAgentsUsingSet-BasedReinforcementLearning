@@ -11,7 +11,7 @@ Examples for set-based reinforcement learning are provided in `./cora/examples/n
 These examples are only trained for a single random seed and do not show the exact results as in [1], due to shorter training times. 
 
 References:
-- [1] Wendl, M. et al. 'Training Verifiably Robust Agents Using Set-Based Reinforcement Learning', 2024
+- [1] XXX XXX et al. 'Training Verifiably Robust Agents Using Set-Based Reinforcement Learning'
 - [2] Pattanaik, A. et al. 'Robust Deep Reinforcement Learning with Adversarial Attacks', Int. Conf. on Autonomous Agents and Multiagent Systems (AAMAS) 2018
 - [3] H. Zhang et.al. Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations, Int. Conf. on Neural Information Processing Systems (NeurIPS) 2020 
 - [4] Lillicrap, T. et al. 'Continuous control with deep reinforcement learning', Int. Conf. on Learning Representations (ICLR), 2016 

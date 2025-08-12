@@ -34,8 +34,8 @@ function [obj, loss] = train(obj,batch,targetBatch,options,noiseBatchG)
 %   loss - mse loss of critic 
 %
 % Refernces:
-%   [1] Wendl, M. et al. Training Verifiably Robust Agents Using Set-Based 
-%       Reinforcement Learning, 2024
+%   [1] XXX XXX et al. Training Verifiably Robust Agents Using Set-Based 
+%       Reinforcement Learning
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -43,9 +43,9 @@ function [obj, loss] = train(obj,batch,targetBatch,options,noiseBatchG)
 %
 % See also: critic
 
-% Authors:       Manuel Wendl
-% Written:       03-November-2023
-% Last update:   19-September-2024 (TL, renamed to train)
+% Authors:       XXX XXX
+% Written:       
+% Last update:   
 % Last revision: ---
 
 % ------------------------------ BEGIN CODE -------------------------------

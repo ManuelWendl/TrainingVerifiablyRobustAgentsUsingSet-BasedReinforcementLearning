@@ -17,8 +17,8 @@ function obj = fillBuffer(obj,data,options)
 %
 % See also: buffer
 
-% Authors:       Manuel Wendl
-% Written:       03-November-2023
+% Authors:       XXX XXX
+% Written:       
 % Last update:   ---
 % Last revision: ---
 
