@@ -158,10 +158,10 @@ It contains 6 classes and an additional folder with helper functions.
     - *computeAdversarialAttack.m* Implementation of adverserial attacks for adverserial training methods
     - *benchmark* Evaluates rl agents on given benchmark
 
-- **@DDPGagent**: Deep deterministic policy gradient agent with main functions 
+- **@agentDDPG**: Deep deterministic policy gradient agent with main functions 
     - *trainNetworkStep* Implements the train step for the DDPG agent
 
-- **@TD3agent**: Twin delayed deep deterministic policy gradient with main functions
+- **@agentTD3**: Twin delayed deep deterministic policy gradient with main functions
     - *trainNetworkStep* Implements the train step for the TD3 agent
 
 - **@actor**: Actor with main functions
