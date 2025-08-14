@@ -25,7 +25,6 @@ function completed = benchmark_rl_agentTD3_Quad1D()
 % See also:
 
 % Authors:       XXX XXX
-% Written:       27-August-2024
 % Last update:   ---
 % Last revision: ---
 
