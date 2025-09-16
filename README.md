@@ -1,5 +1,3 @@
-<a href="https://tumcps.github.io/CORA/"><img src="code/cora/app/images/coraLogo_readme.svg" alt="CORA Logo" style="height: 50px;"></a>
-      
 # Repeatability Package
 
 This folder contains a repeatability package for:
