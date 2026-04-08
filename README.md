@@ -2,7 +2,7 @@
 
 This folder contains a repeatability package for:
 
-- Paper: `Set-Based Policy Gradients for Certifiable Robustness`
+- Paper: `Training Verifiably Robust Agents Using Set-Based Reinforcement Learning`
 - Venue: `under review`
 
   Reinforcement learning policies parametrized by deep neural networks have achieved strong performance for continuous control, yet even small input perturbations may lead to unpredictable behavior. This sensitivity limits their use in safety-critical domains, where formal verifiability and robustness guarantees are required. Our work addresses this gap between state-of-the-art adversarial training methods and formal verification to train verifiably robust agents: Previous works train networks with individual adversarial perturbations, making them only robust against the specific adversarial attacks used. In contrast, our approach propagates entire perturbed input sets, enclosing all possible adversarial attacks within a single network pass. We leverage this to explicitly penalize the size of the output set (minimizing closed-loop uncertainty) and thereby make the actor robust against all possible attacks. This is realized by the use of set-based policy gradients, where each output within the set has a different gradient, thereby balancing the accuracy and robustness of the network. Doing so, we achieve formal verifiability across different verification frameworks for up to 9 times larger input perturbations and improve certified worst-case performance, making them applicable in safety-critical environments.
