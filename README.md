@@ -5,7 +5,7 @@
 This folder contains a repeatability package for:
 
 - Paper:  <a href="https://arxiv.org/abs/2408.09112"> `Training Verifiably Robust Agents Using Set-Based Reinforcement Learning` </a>
-- Venue: `under review`
+- Venue: Transactions on Machine Learning Research (06/2026)
 
   Reinforcement learning uses neural networks as agents to solve complex control tasks.
   However, neural networks are sensitive to input perturbations, which makes their deployment in safety-critical environments challenging and thus their formal verification necessary.
