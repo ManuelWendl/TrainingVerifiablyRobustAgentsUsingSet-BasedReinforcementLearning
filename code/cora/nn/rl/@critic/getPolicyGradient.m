@@ -22,6 +22,7 @@ function [loss,grad_in] = getPolicyGradient(obj,batch,actionBatchC,actionBatchG,
 %               .method: 'point'(default) Training method for actor:
 %                   'point' Standard point-based training 
 %                   'set' Set-based training [1]
+%                   'rorl' Conservative Smoothing [2]
 %   noiseBatchG - pre-allocated noise batch
 %
 % Outputs:
@@ -31,6 +32,8 @@ function [loss,grad_in] = getPolicyGradient(obj,batch,actionBatchC,actionBatchG,
 % Refernces:
 %   [1] Wendl, M. et al. Training Verifiably Robust Agents Using Set-Based 
 %       Reinforcement Learning, 2024
+%   [2] Yang, R. et al. RORL: Robust Offline Reinforcement Learning via 
+%       Conservative Smoothing, 2022
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -56,7 +59,7 @@ end
 options.rl.critic.nn.train.updateGradient = false;
 
 % Get policy gtradient
-if strcmp(options.rl.critic.nn.train.method,'point')
+if any(strcmp(options.rl.critic.nn.train.method,{'point','rorl'}))
     % Point based learning
     yPredBatch = obj.nn.evaluate_(cBatch,options.rl.critic,obj.idxLayer);
     [loss, policyGradient, ~] = aux_computeLoss(yPredBatch,[]);

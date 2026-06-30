@@ -23,7 +23,8 @@ function [obj, loss] = train(obj,critic,batch,options,noiseBatchG)
 %                   'extreme' Adv. samples from edges of perturbation ball
 %                   'naive' Adv. samples from naive algorithm [2]
 %                   'grad' Adv. samples from grad algorthm [2]
-%		    'MAD' Adv. training with maximum-action-difference loss [3]
+%		            'MAD' Adv. training with maximum-action-difference loss [3]
+%                   'rorl' Conservative Smoothing [4]
 %               .eta: 0.01 (default) Weighting factor for set-based 
 %                   training of the actor.
 %               .zonotope_weight_update: 'outer_product' (default)
@@ -41,8 +42,10 @@ function [obj, loss] = train(obj,critic,batch,options,noiseBatchG)
 %       Adversarial Attacks, Int. Conf. on Autonomous Agents and Multiagent 
 %       Systems (AAMAS) 2018
 %   [3] H. Zhang et.al. Robust Deep Reinforcement Learning against Adversarial 
-%	Perturbations on State Observations, Int. Conf. on Neural Information 
-%	Processing Systems (NeurIPS) 2020 
+%	    Perturbations on State Observations, Int. Conf. on Neural Information 
+%	    Processing Systems (NeurIPS) 2020 
+%   [4] Yang, R. et al. RORL: Robust Offline Reinforcement Learning via 
+%       Conservative Smoothing, 2022
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -66,7 +69,7 @@ if ~strcmp(options.rl.actor.nn.train.method,'set')
     [loss,policyGradient] = critic.getPolicyGradient(batch,actionBatchC,[],options);
     obj.nn.backprop(policyGradient.gradC,options.rl.actor,obj.idxLayer);
     
-    if strcmp(options.rl.actor.nn.train.method,'MAD')
+    if any(strcmp(options.rl.actor.nn.train.method,{'MAD','rorl'}))
     gradsW = cell(length(obj.idxLayer),1);
     gradsb = cell(length(obj.idxLayer),1);
     for l = obj.idxLayer

@@ -19,6 +19,7 @@ function [obj, loss] = train(obj,batch,targetBatch,options,noiseBatchG)
 %               .method: 'point'(default) Training method for actor:
 %                   'point' Standard point-based training 
 %                   'set' Set-based training [1]
+%                   'rorl' Conservative Smoothing [2]
 %               .eta: 0.01 (default) Weighting factor for set-based 
 %                   training of the actor.
 %               .advOps - Parameters for adverserial training algs:
@@ -36,6 +37,8 @@ function [obj, loss] = train(obj,batch,targetBatch,options,noiseBatchG)
 % Refernces:
 %   [1] Wendl, M. et al. Training Verifiably Robust Agents Using Set-Based 
 %       Reinforcement Learning, 2024
+%   [2] Yang, R. et al. RORL: Robust Offline Reinforcement Learning via 
+%       Conservative Smoothing, 2022
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -72,6 +75,12 @@ else
 end
 
 obj.optim = obj.optim.step(obj.nn,options.rl.critic,obj.idxLayer);
+if strcmp(options.rl.critic.nn.train.method,'rorl')
+    Q_pred = obj.nn.evaluate_(noiseBatchG{1},options.rl.critic,obj.idxLayer);
+    [~,oodgradOut,~] = aux_computeLoss(noiseBatchG{2},Q_pred,[],options);
+    obj.nn.backprop(0.01 * oodgradOut,options.rl.critic,obj.idxLayer);
+    obj.optim = obj.optim.step(obj.nn,options.rl.critic,obj.idxLayer);
+end
 end
 
 

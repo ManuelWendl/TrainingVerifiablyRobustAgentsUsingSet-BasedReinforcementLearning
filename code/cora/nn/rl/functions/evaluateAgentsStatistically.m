@@ -104,6 +104,9 @@ for j = 1:numberofAgents
             cmap(j,:) = [0.03530,0.25100,0.45490];
             labels{j} = 'SA-SC-$\omega=0.5$';
         end
+     else
+        cmap(j,:) = [0.3,0.3,0.3];
+        labels{j} = 'RORL';
     end
 end
 
