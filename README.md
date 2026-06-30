@@ -200,7 +200,7 @@ If you use this code or find it helpful in your research, please cite the follow
 @article{wendl2024training,
   title={Training verifiably robust agents using set-based reinforcement learning},
   author={Wendl, Manuel and Koller, Lukas and Ladner, Tobias and Althoff, Matthias},
-  journal={arXiv preprint arXiv:2408.09112},
-  year={2024}
+  journal={Transactions on Machine Learning Research},
+  year={2026}
 }
 
