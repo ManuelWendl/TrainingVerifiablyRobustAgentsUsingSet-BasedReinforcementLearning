@@ -98,8 +98,8 @@ for episode = 1:episodes
         % Gather Experience -----------------------------------------------
 
         % evaluate actor 
-        if strcmp(obj.options.rl.critic.nn.train.method,'point')
-            if any(strcmp(obj.options.rl.actor.nn.train.method,{'point','set'}))
+        if any(strcmp(obj.options.rl.critic.nn.train.method,{'rorl','point'}))
+            if any(strcmp(obj.options.rl.actor.nn.train.method,{'point','rorl'}))
                 action = obj.actor.nn.evaluate_(observation,obj.options.rl.actor,obj.actor.idxLayer);
             else
                 % Perform adversarial attack if not point or set-based

@@ -138,7 +138,7 @@ if CHECKS_ENABLED
                 'critic.nn.train.method', "set"))
         end
     end
-    aux_checkFieldStr(options.rl.critic.nn.train,'method',{'point','set'},structName);
+    aux_checkFieldStr(options.rl.critic.nn.train,'method',{'point','set','rorl'},structName);
 end
 
 end

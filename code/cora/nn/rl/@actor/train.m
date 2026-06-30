@@ -65,8 +65,7 @@ if ~strcmp(options.rl.actor.nn.train.method,'set')
     actionBatchC = obj.nn.evaluate_(cBatch,options.rl.actor,obj.idxLayer);
     [loss,policyGradient] = critic.getPolicyGradient(batch,actionBatchC,[],options);
     obj.nn.backprop(policyGradient.gradC,options.rl.actor,obj.idxLayer);
-    
-    if strcmp(options.rl.actor.nn.train.method,'MAD')
+    if any(strcmp(options.rl.actor.nn.train.method,{'MAD','rorl'}))
     gradsW = cell(length(obj.idxLayer),1);
     gradsb = cell(length(obj.idxLayer),1);
     for l = obj.idxLayer

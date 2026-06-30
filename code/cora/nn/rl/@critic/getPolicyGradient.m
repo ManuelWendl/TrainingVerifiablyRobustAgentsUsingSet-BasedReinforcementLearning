@@ -56,7 +56,7 @@ end
 options.rl.critic.nn.train.updateGradient = false;
 
 % Get policy gtradient
-if strcmp(options.rl.critic.nn.train.method,'point')
+if any(strcmp(options.rl.critic.nn.train.method,{'point','rorl'}))
     % Point based learning
     yPredBatch = obj.nn.evaluate_(cBatch,options.rl.critic,obj.idxLayer);
     [loss, policyGradient, ~] = aux_computeLoss(yPredBatch,[]);
